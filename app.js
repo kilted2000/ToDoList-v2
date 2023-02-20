@@ -129,16 +129,16 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-// let port = process.env.PORT;
-// if(port == null || port == ""){
-//   port = 3000;
-// }
-const PORT = process.env.PORT 
-app.listen(PORT || 3000, () => console.log(`Server running on port ${PORT}`));
-// let port = process.env.$PORT;
+let port = process.env.PORT;
+if(port == null || port == ""){
+  port = 3000;
+}
+// const PORT = process.env.PORT 
+// app.listen(PORT || 3000, () => console.log(`Server running on port ${PORT}`));
+// // let port = process.env.$PORT;
 
 
-app.listen('0.0.0.0:port' || 3000);
-app.listen(port, function() {
-  console.log("Server started successfully");
-});
+// app.listen('0.0.0.0:port' || 3000);
+// app.listen(port, function() {
+//   console.log("Server started successfully");
+// });
