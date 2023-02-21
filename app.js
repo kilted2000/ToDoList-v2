@@ -143,12 +143,12 @@ const connectDB = async () => {
   }
 }
 
-//Routes go here
-app.all('*', (req,res) => {
-  res.json({"every thing":"is awesome"})
-});
 
-//Connect to the database before listening
+// app.all('*', (req,res) => {
+//   res.json({"every thing":"is awesome"})
+// });
+
+
 connectDB().then(() => {
   app.listen(PORT, () => {
       console.log("listening for requests");
