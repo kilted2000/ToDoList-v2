@@ -131,8 +131,26 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-const port = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
 
-app.listen(port || 3000, function(){
-  console.log("server working");
-})
+const connectDB = async () => {
+  try {
+    const conn = mongoose.connect(process.env.MONGO_URI);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+}
+
+//Routes go here
+app.all('*', (req,res) => {
+  res.json({"every thing":"is awesome"})
+});
+
+//Connect to the database before listening
+connectDB().then(() => {
+  app.listen(PORT, () => {
+      console.log("listening for requests");
+  })
+});
