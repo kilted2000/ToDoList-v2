@@ -133,15 +133,15 @@ app.get("/about", function(req, res){
 
 const PORT = process.env.PORT || 3000
 
-const connectDB = async () => {
-  try {
-    const conn = mongoose.connect(process.env.MONGO_URI);
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.log(error);
-    process.exit(1);
-  }
-}
+// const connectDB = async () => {
+//   try {
+//     const conn = mongoose.connect(process.env.MONGO_URI);
+//     console.log(`MongoDB Connected: ${conn.connection.host}`);
+//   } catch (error) {
+//     console.log(error);
+//     process.exit(1);
+//   }
+// }
 
 
 // app.all('*', (req,res) => {
@@ -149,8 +149,9 @@ const connectDB = async () => {
 // });
 
 
-connectDB().then(() => {
+//connectDB().then(() => {
   app.listen(PORT, () => {
       console.log("listening for requests");
   })
-});
+//}
+//);
